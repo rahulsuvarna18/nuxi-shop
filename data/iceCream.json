@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "name": "Chocolate Dream",
+    "description": "Indulge in a symphony of velvety richness with our Chocolate Dream ice cream. Immerse your taste buds in the luscious swirls of premium cocoa, creating a heavenly escape for chocolate enthusiasts. Experience pure bliss in every spoonful, as this delectable treat takes you on a journey of unparalleled chocolate euphoria.",
+    "inStock": "20",
+    "price": 5
+  },
+  {
+    "id": "2",
+    "name": "StrawBerry Sundae",
+    "description": "Savor the perfect blend of sweet and tart with our Chocolate Strawberry Sundae. Dive into a luscious sea of velvety chocolate sauce enveloping ripe, succulent strawberries. Topped with a dollop of creamy vanilla, it's a tantalizing symphony of flavors that transforms every bite into a delightful dessert experience.",
+    "inStock": "75",
+    "price": 9
+  },
+  {
+    "id": "3",
+    "name": "Banana Sundae",
+    "description": "Embark on a tropical escape with our Banana Sundae, where ripe, golden bananas meet the embrace of silky vanilla ice cream. Drizzled with warm caramel and crowned with a sprinkle of chopped nuts, each spoonful is a harmonious blend of sweetness and crunch. Elevate your dessert cravings with this delectable banana delight.",
+    "inStock": "14",
+    "price": 6
+  },
+  {
+    "id": "4",
+    "name": "Tiramisu",
+    "description": "Immerse yourself in the divine elegance of our Tiramisu, a masterpiece of delicate coffee-soaked ladyfingers layered with velvety mascarpone cream. Each bite is a symphony of rich cocoa dusting and a hint of espresso, creating a blissful balance of textures and flavors. Indulge in this Italian classic, where every forkful is a journey into the exquisite realm of sophisticated sweetness.",
+    "inStock": "5",
+    "price": 8
+  },
+  {
+    "id": "5",
+    "name": "Banana split",
+    "description": "Delight in the classic joy of our Banana Split Ice Cream, where the luscious trio of vanilla, chocolate, and strawberry harmonize with slices of ripe banana. Swirled with ribbons of fudge and crowned with whipped cream and vibrant cherries, it's a decadent celebration of flavors and textures. Dive into this timeless treat that transforms every scoop into a symphony of indulgence.",
+    "inStock": "12",
+    "price": 4
+  }
+]
