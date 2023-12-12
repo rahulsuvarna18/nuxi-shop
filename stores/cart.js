@@ -175,12 +175,12 @@
 // Import necessary modules
 import { defineStore } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 
 // Define the store
 export const useCartStore = defineStore("cart", {
   state: () => ({
-    allIceData: ref([]),
+    allIceData: reactive([]),
     // data: useLocalStorage("cart", {}),
     // cartContent: useLocalStorage("cartContent", {}),
     cartContent: ref({}),
@@ -257,13 +257,8 @@ export const useCartStore = defineStore("cart", {
     },
 
     total() {
-      // Ensure that cartContent is initialized and is an object
-      if (!this.cartContent || typeof this.cartContent !== "object") {
-        return 0;
-      }
-
       return Object.keys(this.cartContent).reduce((acc, id) => {
-        const product = this.allIceData.find((p) => p.id === id);
+        const product = this.allIceData.find((p) => p.id === parseInt(id));
         if (product) {
           return acc + product.price * this.cartContent[id].quantity;
         }

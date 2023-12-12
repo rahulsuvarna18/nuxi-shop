@@ -29,10 +29,7 @@
 </template>
 
 <script setup>
-import { useRoute } from "vue-router";
 import { useCartStore } from "../../stores/cart";
-
-import { useLocalStorage } from "@vueuse/core";
 
 useHead({
   title: "Ice Cream Cart",
