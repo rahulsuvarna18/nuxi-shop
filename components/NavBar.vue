@@ -3,14 +3,16 @@
     <NuxtLink to="/">Ice Cream Shop</NuxtLink>
     <div class="inner-box">
       <div class="info-box" v-if="user">
-        <p>Hi {{ name }}</p>
+        <p>Hi {{ name ? name : "user" }}</p>
         <NuxtLink to="/cart">Cart</NuxtLink>
         <img
+          v-if="profile"
           :src="profile"
           alt="avatar"
           @click="navigateTo('/profile/listings')"
           class="cursor-pointer"
         />
+        <p v-else @click="navigateTo('/profile/listings')">Dashboard</p>
         <button @click="logout">Logout</button>
       </div>
       <div v-else>
