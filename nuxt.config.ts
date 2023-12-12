@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxtjs/supabase",
     "@vueuse/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
   ],
   app: {
     pageTransition: { name: "page", mode: "out-in" },

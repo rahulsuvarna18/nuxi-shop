@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "@vueuse/core": "^10.7.0",
     "nuxt": "^3.8.2",
     "vue": "^3.3.8",
@@ -18,11 +19,11 @@
   },
   "dependencies": {
     "@nuxt/image-edge": "^1.0.0-27809804.194d2d6",
-    "@vueuse/nuxt": "^10.7.0",
-    "@nuxtjs/tailwindcss": "^6.10.1",
     "@nuxtjs/supabase": "^0.3.0",
+    "@nuxtjs/tailwindcss": "^6.10.1",
     "@pinia/nuxt": "^0.5.1",
     "@prisma/client": "^5.7.0",
+    "@vueuse/nuxt": "^10.7.0",
     "joi": "^17.11.0",
     "pinia": "^2.1.7",
     "prisma": "^5.7.0"
