@@ -181,19 +181,18 @@ import { ref } from "vue";
 export const useCartStore = defineStore("cart", {
   state: () => ({
     allIceData: ref([]),
-    data: useLocalStorage("cart", {}),
-    cartContent: useLocalStorage("cartContent", {}), // Initialize with an empty object
+    // data: useLocalStorage("cart", {}),
+    // cartContent: useLocalStorage("cartContent", {}),
+    cartContent: ref({}),
   }),
+
+  persist: true,
 
   actions: {
     async getData() {
       const data = await useFetchIceCreams();
       this.allIceData = data;
     },
-
-    // add(productId) {
-    //   this.cartContent = { name: productId };
-    // },
 
     add(productId) {
       // Ensure that cartContent is initialized and is an object
