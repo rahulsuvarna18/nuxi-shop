@@ -1,23 +1,17 @@
 <template>
-  <div class="shadow rounded overflow-hidden flex justify-between mb-4">
-    <NuxtLink to="/profile/listings/create" class="back-button"
-      >Create a listing</NuxtLink
-    >
-    <div class="flex">
-      <div class="p-3" v-for="listing in listings">
+  <div>
+    <div class="rounded overflow-hidden flex justify-center items-center mb-4">
+      <NuxtLink to="/profile/listings/create" class="back-button"
+        >Create a listing</NuxtLink
+      >
+    </div>
+
+    <div class="">
+      <div class="list-container shadow" v-for="listing in listings">
         <h1 class="text-2xl">{{ listing.name }}</h1>
-        <p class="text-blue-400">${{ listing.price }}</p>
+        <p class="text-blue-400">Price: ${{ listing.price }}</p>
         <button @click="handleDelete(listing.id)">Delete</button>
       </div>
-    </div>
-    <div class="p-3 flex">
-      >
-      <!-- <p
-        class="text-red-400 cursor-pointer"
-        @click="emits('deleteClick', listing.id)"
-      >
-        Delete
-      </p> -->
     </div>
   </div>
 </template>
@@ -59,5 +53,14 @@ const handleDelete = async (id) => {
   color: #fff;
   background-color: #0b5ed7;
   border-color: #0a58ca;
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: 20rem 12rem 2rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem;
+  grid-column-gap: 20rem;
 }
 </style>
