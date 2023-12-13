@@ -4,7 +4,7 @@
       <h2
         class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
       >
-        Sign in to your account
+        Sign up with Email
       </h2>
     </div>
 
@@ -52,38 +52,14 @@
 
         <div>
           <button
-            @click="loginWithEmail"
+            @click="signUpWithEmail"
             type="submit"
             class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-            Sign in
+            Sign up
           </button>
         </div>
       </div>
-      <div class="py-3 flex items-center justify-center gap-2">
-        <span>Not a registered user? Click</span>
-        <button
-          @click="navigateTo('/signUp')"
-          class="rounded-md bg-blue-600 px-8 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
-        >
-          Here
-        </button>
-      </div>
-
-      <p class="mt-10 text-center text-sm text-gray-500">
-        <a
-          href="#"
-          class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-          >Or continue with</a
-        >
-        <button
-          @click="googleLogin"
-          type="submit"
-          class="flex w-full justify-center rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400"
-        >
-          Google
-        </button>
-      </p>
     </div>
   </div>
 </template>
@@ -99,27 +75,15 @@ const errorMsg = ref("");
 
 const supabase = useSupabaseClient();
 
-async function googleLogin() {
-  const { error } = await supabase.auth.signInWithOAuth({
-    provider: "google",
-  });
-
-  if (error) {
-    console.log(error);
-    return;
-  }
-}
-
-const loginWithEmail = async () => {
+const signUpWithEmail = async () => {
   try {
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { error } = await supabase.auth.signUp({
       email: email.value,
       password: password.value,
     });
     email.value = "";
     password.value = "";
     if (error) throw error;
-    console.log(data);
     navigateTo("/");
   } catch (error) {
     errorMsg.value = error.message;

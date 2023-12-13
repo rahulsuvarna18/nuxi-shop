@@ -263,7 +263,7 @@ export const useCartStore = defineStore("cart", {
       }
 
       return Object.keys(this.cartContent).reduce((acc, id) => {
-        const product = this.allIceData.find((p) => p.id === id);
+        const product = this.allIceData.find((p) => p.id === parseInt(id));
         if (product) {
           return acc + product.price * this.cartContent[id].quantity;
         }
