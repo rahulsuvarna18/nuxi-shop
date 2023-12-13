@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-8">
     <div class="flex flex-col w-[100%] mt-2">
       <label for="" class="text-cyan-500 mb-1 text-sm">Name</label>
       <input type="text" class="p-2 border w-100 rounded" v-model="info.name" />
@@ -68,7 +68,6 @@ const handleSubmit = async () => {
     navigateTo("/profile/listings");
   } catch (err) {
     errorMessage.value = err.statusMessage;
-    // await supabase.storage.from("images").remove(data.path);
   }
 
   info.value.name = "";
