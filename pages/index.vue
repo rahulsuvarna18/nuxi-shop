@@ -25,7 +25,6 @@ useHead({
   line-height: 1.5;
   text-align: center;
   border: 1px solid transparent;
-  /* padding: 6px 12px; */
   padding: 23px 51px;
   font-size: 16px;
   border-radius: 0.25rem;
@@ -40,18 +39,12 @@ useHead({
 }
 
 .container {
-  /* margin: 0; */
-  /* position: absolute; */
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-
-  /* background-image: url("@/assets/images/home-screen-pic.jpg"); */
   background-image: url("@/assets/images/home-screen-pic.jpg");
-  /* opacity: 0.5; */
   background-size: cover;
-  /* height: 100vh; */
   height: 93vh;
   max-width: 100vw;
 }
@@ -61,15 +54,4 @@ useHead({
   top: 0;
   width: 100vw;
 }
-
-/* .nuxt-link {
-  background-color: green;
-  padding: 5rem 10rem;
-  border-radius: 10%;
-  font-size: 5rem;
-} */
-/*
-.login {
-  background-color: rgb(0, 162, 255);
-} */
 </style>

@@ -35,10 +35,6 @@ useHead({
   title: "Ice Cream Cart",
 });
 
-// const route = useRoute();
-
-// const routeParams = route.params;
-
 const cartStore = useCartStore();
 </script>
 
