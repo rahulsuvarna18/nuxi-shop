@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="flex flex-col justify-center items-center">
     <Menu :iceCreams="iceCreams" />
   </div>
 </template>
@@ -15,16 +15,3 @@ const iceCreams = await useFetchIceCreams({
   maxPrice: route.query.maxPrice,
 });
 </script>
-
-<style scoped>
-.container {
-  /* background-color: red; */
-
-  /* position: absolute; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 100vw;
-}
-</style>

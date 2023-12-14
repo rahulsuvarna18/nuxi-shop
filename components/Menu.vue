@@ -5,7 +5,6 @@
     <p>Price: ${{ iceCream.price }}</p>
 
     <button class="back-button" @click="cartStore.add(iceCream.id)">
-      <!-- <button class="back-button" @click="testStore.updateData(iceCream)"> -->
       Add to cart
     </button>
   </div>
@@ -13,10 +12,8 @@
 
 <script setup>
 import { useCartStore } from "@/stores/cart.js";
-// import { useExampleStore } from "@/stores/test.js";
 
 const cartStore = useCartStore();
-// const testStore = useExampleStore();
 
 const props = defineProps({
   iceCreams: Array,

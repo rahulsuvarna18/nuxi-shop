@@ -6,11 +6,14 @@
       >
     </div>
 
-    <div class="">
-      <div class="list-container shadow" v-for="listing in listings">
-        <h1 class="text-2xl">{{ listing.name }}</h1>
-        <p class="text-blue-400">Price: ${{ listing.price }}</p>
-        <button @click="handleDelete(listing.id)">Delete</button>
+    <div>
+      <div v-for="listing in listings">
+        <div class="list-container shadow">
+          <h1 class="text-2xl">{{ listing.name }}</h1>
+          <p class="text-blue-400">Price: ${{ listing.price }}</p>
+          <button @click="handleDelete(listing.id)">Delete</button>
+          <LoadingSpinner v-if="isLoading" />
+        </div>
       </div>
     </div>
   </div>
@@ -18,17 +21,24 @@
 
 <script setup>
 const user = useSupabaseUser();
+const isLoading = ref(false);
 
 const { data: listings, refresh } = await useFetch(
   `/api/iceCream/user/${user.value.id}`
 );
 
 const handleDelete = async (id) => {
+  isLoading.value = true;
   await $fetch(`/api/iceCream/${id}`, {
     method: "delete",
   });
   refresh();
+  isLoading.value = false;
 };
+
+// const loaderOrDelete = computed(() => {
+//   return isLoading ? <LoadingSpinner /> : "Delete";
+// });
 </script>
 
 <style scoped>
