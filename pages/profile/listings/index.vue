@@ -20,6 +20,10 @@
 </template>
 
 <script setup>
+definePageMeta({
+  middleware: ["auth"],
+});
+
 const user = useSupabaseUser();
 const isLoading = ref(false);
 
@@ -35,10 +39,6 @@ const handleDelete = async (id) => {
   refresh();
   isLoading.value = false;
 };
-
-// const loaderOrDelete = computed(() => {
-//   return isLoading ? <LoadingSpinner /> : "Delete";
-// });
 </script>
 
 <style scoped>
