@@ -34,6 +34,10 @@
 <script setup>
 import { computed } from "vue";
 
+definePageMeta({
+  middleware: ["auth"],
+});
+
 const user = useSupabaseUser();
 
 const errorMessage = ref("");
