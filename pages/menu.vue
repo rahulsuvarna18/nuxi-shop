@@ -1,6 +1,10 @@
 <template>
   <div class="flex flex-col justify-center items-center">
-    <Menu :iceCreams="iceCreams" />
+    <Menu
+      v-for="iceCream in iceCreams"
+      :key="iceCream.id"
+      :iceCream="iceCream"
+    />
   </div>
 </template>
 

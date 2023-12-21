@@ -1,5 +1,5 @@
 <template>
-  <div v-for="iceCream in iceCreams" :key="iceCream.id" class="container">
+  <div class="container">
     <h1>{{ iceCream.name }}</h1>
     <p>{{ iceCream.description }}</p>
     <p>Price: ${{ iceCream.price }}</p>
@@ -10,14 +10,22 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useCartStore } from "@/stores/cart.js";
 
 const cartStore = useCartStore();
 
-const props = defineProps({
-  iceCreams: Array,
-});
+interface MenuItem {
+  iceCream: {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    listerId: string;
+  };
+}
+
+const props = defineProps<MenuItem>();
 </script>
 
 <style scoped>
