@@ -1,8 +1,12 @@
 <template>
   <div class="main-container">
     <div v-if="cartStore.cartInfo.length">
-      <CartItems />
-      <CartTotal />
+      <CartItems
+        v-for="item in cartStore.cartInfo"
+        :key="item.id"
+        :item="item"
+      />
+      <CartTotal :total="cartStore.total" />
     </div>
     <div v-else>
       <CartEmpty />

@@ -1,5 +1,5 @@
 <template>
-  <div v-for="item in cartStore.cartInfo" :key="item.id" class="container">
+  <div class="container">
     <h1>Name: {{ item.name }}</h1>
 
     <p>Quantity: {{ item.quantity }} x {{ item.price }}€</p>
@@ -14,10 +14,22 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useCartStore } from "../../stores/cart";
 
 const cartStore = useCartStore();
+
+interface CartItem {
+  item: {
+    id: number;
+    name: string;
+    price: Number;
+    quantity: number;
+    totalPrice: Number;
+  };
+}
+
+const props = defineProps<CartItem>();
 </script>
 
 <style scoped>
