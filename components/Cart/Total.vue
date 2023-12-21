@@ -1,14 +1,16 @@
 <template>
-  <p>Total: {{ cartStore.total }}€</p>
+  <p>Total: {{ total }}€</p>
   <button class="back-button" @click="navigateTo('/menu')">
     Add more from the menu
   </button>
 </template>
 
-<script setup>
-import { useCartStore } from "../../stores/cart";
+<script setup lang="ts">
+interface CartTotal {
+  total: number;
+}
 
-const cartStore = useCartStore();
+const props = defineProps<CartTotal>();
 </script>
 
 <style scoped>

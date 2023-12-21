@@ -6,7 +6,7 @@
         :key="item.id"
         :item="item"
       />
-      <CartTotal />
+      <CartTotal :total="cartStore.total" />
     </div>
     <div v-else>
       <CartEmpty />
