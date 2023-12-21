@@ -82,14 +82,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 useHead({
   title: "Login",
 });
 
-const email = ref("");
-const password = ref("");
-const errorMsg = ref("");
+const email = ref<string>("");
+const password = ref<string>("");
+const errorMsg = ref<string>("");
 
 const supabase = useSupabaseClient();
 
@@ -113,9 +113,8 @@ const loginWithEmail = async () => {
     email.value = "";
     password.value = "";
     if (error) throw error;
-    console.log(data);
     navigateTo("/");
-  } catch (error) {
+  } catch (error: any) {
     errorMsg.value = error.message;
   }
 };
