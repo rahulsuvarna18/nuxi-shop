@@ -20,6 +20,9 @@
 </template>
 
 <script setup>
+useHead({
+  title: "Dashboard",
+});
 definePageMeta({
   middleware: ["auth"],
 });
