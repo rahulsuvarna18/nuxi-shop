@@ -1,12 +1,6 @@
 <template>
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-      <h2
-        class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
-      >
-        Sign up with Email
-      </h2>
-    </div>
+    <LoginSignInText text="Sign Up" />
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <div class="space-y-6">
@@ -64,14 +58,14 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 useHead({
   title: "Login",
 });
 
-const email = ref("");
-const password = ref("");
-const errorMsg = ref("");
+const email = ref<string>("");
+const password = ref<string>("");
+const errorMsg = ref<string>("");
 
 const supabase = useSupabaseClient();
 
@@ -85,7 +79,7 @@ const signUpWithEmail = async () => {
     password.value = "";
     if (error) throw error;
     navigateTo("/");
-  } catch (error) {
+  } catch (error: any) {
     errorMsg.value = error.message;
   }
 };
