@@ -1,6 +1,6 @@
 <template>
   <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-    <LoginSignInText />
+    <LoginSignInText text="Sign In" />
 
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <div class="space-y-6">

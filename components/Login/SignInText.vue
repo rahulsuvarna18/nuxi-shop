@@ -3,7 +3,15 @@
     <h2
       class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
     >
-      Sign in to your account
+      {{ text }} to your account
     </h2>
   </div>
 </template>
+
+<script setup lang="ts">
+interface Text {
+  text: string;
+}
+
+const props = defineProps<Text>();
+</script>
