@@ -1,25 +1,42 @@
 <template>
-  <nav v-if="userDataLoaded">
-    <NuxtLink to="/">Ice Cream Shop</NuxtLink>
-    <div class="inner-box">
-      <div class="info-box" v-if="user">
-        <p>Hi {{ name ? name : "user" }}</p>
-        <NuxtLink to="/cart">Cart</NuxtLink>
-        <img
-          v-if="profile"
-          :src="profile"
-          alt="avatar"
-          @click="navigateTo('/profile/listings')"
-          class="cursor-pointer"
-        />
-        <p v-else @click="navigateTo('/profile/listings')">Dashboard</p>
-        <button @click="logout">Logout</button>
-      </div>
-      <div v-else>
-        <NuxtLink to="/cart">Cart</NuxtLink>
-      </div>
+  <v-toolbar app>
+    <v-btn @click="navigateTo('/')">Nuxi Shop</v-btn>
+
+    <v-spacer></v-spacer>
+
+    <div>
+      <v-row>
+        <v-col class="d-flex align-center ga-3">
+          <div v-if="user">
+            <span class="mr-5">Hi {{ name ? name : "user" }}</span>
+
+            <v-avatar class="mr-2">
+              <v-img alt="profile pic" :src="profile"></v-img>
+            </v-avatar>
+
+            <v-btn @click="navigateTo('/profile/listings')" icon>
+              <v-icon>mdi-view-dashboard-variant</v-icon>
+              <v-tooltip activator="parent" location="bottom">
+                Dashboard
+              </v-tooltip>
+            </v-btn>
+
+            <v-btn @click="logout" icon>
+              <v-icon>mdi-logout-variant</v-icon>
+              <v-tooltip activator="parent" location="bottom">
+                Logout
+              </v-tooltip>
+            </v-btn>
+          </div>
+
+          <v-btn @click="navigateTo('/cart')" icon>
+            <v-icon>mdi-cart</v-icon>
+            <v-tooltip activator="parent" location="bottom"> Cart </v-tooltip>
+          </v-btn>
+        </v-col>
+      </v-row>
     </div>
-  </nav>
+  </v-toolbar>
 </template>
 
 <script setup>
@@ -47,30 +64,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  overflow: hidden;
-  background-color: hsla(0, 0%, 100%, 0);
-  height: 7vh;
-  font-size: 1.5rem;
-}
-
-.inner-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.info-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-}
 .info-box img {
   border-radius: 50%;
   height: 2.5rem;

@@ -7,7 +7,9 @@ export default defineNuxtConfig({
     "@nuxtjs/supabase",
     "@vueuse/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
+    "@invictus.codes/nuxt-vuetify",
   ],
+
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
