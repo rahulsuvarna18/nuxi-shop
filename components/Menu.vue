@@ -6,7 +6,6 @@
         <v-sheet>{{ iceCream.description }}</v-sheet>
         <v-sheet>Price: ${{ iceCream.price }}</v-sheet>
         <v-btn
-          to="/menu"
           color="#0d6efd"
           height="3rem"
           width="8rem"

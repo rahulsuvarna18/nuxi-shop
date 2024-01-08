@@ -1,17 +1,19 @@
 <template>
-  <div class="container">
+  <v-container class="d-flex ga-3 align-center justify-center">
     <h1>Name: {{ item.name }}</h1>
+    <v-divider vertical></v-divider>
 
     <p>Quantity: {{ item.quantity }} x {{ item.price }}€</p>
+    <v-divider vertical></v-divider>
     <p>Total: {{ item.totalPrice }}€</p>
-    <div>
-      <button @click="cartStore.add(item.id)">+</button>
-      <button @click="cartStore.remove(item.id)">-</button>
-    </div>
-    <button class="delete-button" @click="cartStore.removeProduct(item.id)">
+    <v-divider vertical></v-divider>
+    <v-btn color="#FAFAFA" @click="cartStore.add(item.id)">+</v-btn>
+    <v-btn color="#FAFAFA" @click="cartStore.remove(item.id)">-</v-btn>
+    <v-divider vertical></v-divider>
+    <v-btn color="#fd0d71" @click="cartStore.removeProduct(item.id)">
       Delete Product
-    </button>
-  </div>
+    </v-btn>
+  </v-container>
 </template>
 
 <script setup lang="ts">
@@ -31,36 +33,3 @@ interface CartItem {
 
 const props = defineProps<CartItem>();
 </script>
-
-<style scoped>
-.container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 2rem;
-}
-
-.delete-button {
-  cursor: pointer;
-  outline: 0;
-  color: #fff;
-  background-color: #fd0d71;
-  border-color: #fd0d71;
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: center;
-  border: 1px solid transparent;
-  padding: 6px 12px;
-  font-size: 16px;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.delete-button:hover {
-  color: #fff;
-  background-color: #c10b57;
-  border-color: #c10b57;
-}
-</style>
