@@ -1,18 +1,21 @@
 <template>
-  <div class="container">
-    <h1>{{ iceCream.name }}</h1>
-    <p>{{ iceCream.description }}</p>
-    <p>Price: ${{ iceCream.price }}</p>
-
-    <v-btn
-      to="/menu"
-      color="#0d6efd"
-      height="3rem"
-      width="8rem"
-      @click="cartStore.add(iceCream.id)"
-      >Add To Cart</v-btn
-    >
-  </div>
+  <v-container>
+    <v-row>
+      <v-col class="d-flex flex-col justify-center align-center ga-3">
+        <v-sheet>{{ iceCream.name }}</v-sheet>
+        <v-sheet>{{ iceCream.description }}</v-sheet>
+        <v-sheet>Price: ${{ iceCream.price }}</v-sheet>
+        <v-btn
+          to="/menu"
+          color="#0d6efd"
+          height="3rem"
+          width="8rem"
+          @click="cartStore.add(iceCream.id)"
+          >Add To Cart</v-btn
+        >
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup lang="ts">
