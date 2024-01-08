@@ -1,18 +1,23 @@
 <template>
-  <p class="mt-10 text-center text-sm text-gray-500">
-    <a
-      href="#"
-      class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
-      >Or continue with</a
-    >
-    <button
-      @click="googleLogin"
-      type="submit"
-      class="flex w-full justify-center rounded-md bg-rose-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-400"
-    >
-      Google
-    </button>
-  </p>
+  <v-container class="text-center">
+    <v-row>
+      <v-col>
+        <p>Or continue with</p>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col>
+        <v-btn
+          @click="googleLogin"
+          color="#FF1744"
+          rounded
+          class="w-50"
+          text="Google"
+        ></v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup>

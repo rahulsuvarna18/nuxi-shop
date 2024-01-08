@@ -1,6 +1,6 @@
 <template>
   <v-toolbar app>
-    <v-btn @click="navigateTo('/')">Nuxi Shop</v-btn>
+    <v-btn to="/" text="Nuxi Shop"></v-btn>
 
     <v-spacer></v-spacer>
 
@@ -10,7 +10,7 @@
           <div v-if="user">
             <span class="mr-5">Hi {{ name ? name : "user" }}</span>
 
-            <v-avatar class="mr-2">
+            <v-avatar v-if="profile != undefined" class="mr-2">
               <v-img alt="profile pic" :src="profile"></v-img>
             </v-avatar>
 
