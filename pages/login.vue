@@ -1,5 +1,5 @@
 <template>
-  <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+  <div class="d-flex flex-column justify-center px-6 py-20">
     <LoginSignInText text="Sign In" />
     <LoginBody />
   </div>

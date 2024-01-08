@@ -1,11 +1,15 @@
 <template>
-  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-    <h2
-      class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
-    >
-      {{ text }} to your account
-    </h2>
-  </div>
+  <v-container>
+    <v-row>
+      <v-col>
+        <v-sheet>
+          <v-card-title class="text-center">
+            <h5 class="font-weight-bold">{{ text }} to your account</h5>
+          </v-card-title>
+        </v-sheet>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup lang="ts">
