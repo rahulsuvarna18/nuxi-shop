@@ -3,33 +3,20 @@
     <v-row>
       <v-col>
         <v-label for="email" text="Email Address"></v-label>
-        <v-text-field v-model="email" rounded outlined></v-text-field>
+        <v-text-field v-model="email" rounded variant="outlined"></v-text-field>
       </v-col>
     </v-row>
 
-    <v-row>
-      <v-col>
-        <v-label text="Password"></v-label>
-        <v-text-field
-          v-model="password"
-          required
-          rounded
-          outlined
-        ></v-text-field>
-      </v-col>
-    </v-row>
+    <v-label text="Password"></v-label>
+    <v-text-field v-model="password" variant="outlined" rounded></v-text-field>
 
-    <v-row>
-      <v-col>
-        <v-btn
-          @click="signUpWithEmail"
-          color="indigo"
-          rounded
-          text="Sign up"
-          width="8rem"
-        ></v-btn>
-      </v-col>
-    </v-row>
+    <v-btn
+      @click="signUpWithEmail"
+      color="indigo"
+      rounded
+      text="Sign up"
+      width="8rem"
+    ></v-btn>
   </v-container>
 </template>
 
