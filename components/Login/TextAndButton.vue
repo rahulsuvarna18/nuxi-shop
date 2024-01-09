@@ -2,19 +2,34 @@
   <v-container>
     <v-row>
       <v-col>
-        <v-text-field v-model="email" label="Email address"></v-text-field>
+        <v-text-field
+          v-model="email"
+          variant="outlined"
+          rounded
+          label="Email address"
+        ></v-text-field>
       </v-col>
     </v-row>
 
     <v-row>
       <v-col>
-        <v-text-field v-model="password" label="Password"></v-text-field>
+        <v-text-field
+          v-model="password"
+          variant="outlined"
+          rounded
+          label="Password"
+        ></v-text-field>
       </v-col>
     </v-row>
 
     <v-row>
       <v-col>
-        <v-btn @click="loginWithEmail" text="Sign In" color="indigo"></v-btn>
+        <v-btn
+          @click="loginWithEmail"
+          text="Sign In"
+          rounded
+          color="indigo"
+        ></v-btn>
       </v-col>
     </v-row>
   </v-container>

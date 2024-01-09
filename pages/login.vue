@@ -1,8 +1,8 @@
 <template>
-  <div class="d-flex flex-column justify-center px-6 py-20">
+  <v-container class="d-flex flex-col justify-center h-100">
     <LoginSignInText text="Sign In" />
     <LoginBody />
-  </div>
+  </v-container>
 </template>
 
 <script setup lang="ts">

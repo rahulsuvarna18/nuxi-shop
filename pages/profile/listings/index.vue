@@ -1,22 +1,34 @@
 <template>
-  <div>
-    <div class="rounded overflow-hidden flex justify-center items-center mb-4">
-      <NuxtLink to="/profile/listings/create" class="back-button"
-        >Create a listing</NuxtLink
-      >
-    </div>
+  <v-container>
+    <v-row class="mb-4">
+      <v-col class="text-center">
+        <v-btn
+          to="/profile/listings/create"
+          text="Create a listing"
+          color="#0d6efd"
+        >
+        </v-btn>
+      </v-col>
+    </v-row>
 
-    <div>
-      <div v-for="listing in listings">
-        <div class="list-container shadow">
-          <h1 class="text-2xl">{{ listing.name }}</h1>
-          <p class="text-blue-400">Price: ${{ listing.price }}</p>
-          <button @click="handleDelete(listing.id)">Delete</button>
+    <v-row>
+      <v-col v-for="listing in listings" :key="listing.id">
+        <v-card>
+          <v-card-title class="text-2xl">{{ listing.name }}</v-card-title>
+          <v-card-subtitle class="text-blue-400"
+            >Price: ${{ listing.price }}</v-card-subtitle
+          >
+          <v-btn
+            @click="handleDelete(listing.id)"
+            color="#C62828"
+            text="Delete"
+          >
+          </v-btn>
           <LoadingSpinner v-if="isLoading" />
-        </div>
-      </div>
-    </div>
-  </div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup>
@@ -45,29 +57,6 @@ const handleDelete = async (id) => {
 </script>
 
 <style scoped>
-.back-button {
-  cursor: pointer;
-  outline: 0;
-  color: #fff;
-  background-color: #0d6efd;
-  border-color: #0d6efd;
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1.5;
-  text-align: center;
-  border: 1px solid transparent;
-  padding: 6px 12px;
-  font-size: 16px;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-.back-button:hover {
-  color: #fff;
-  background-color: #0b5ed7;
-  border-color: #0a58ca;
-}
-
 .list-container {
   display: grid;
   grid-template-columns: 20rem 12rem 2rem;
