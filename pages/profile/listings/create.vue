@@ -1,34 +1,39 @@
 <template>
-  <div class="p-8">
-    <div class="flex flex-col w-[100%] mt-2">
-      <label for="" class="text-cyan-500 mb-1 text-sm">Name</label>
-      <input type="text" class="p-2 border w-100 rounded" v-model="info.name" />
-    </div>
-    <div class="flex flex-col w-[100%] mt-2">
-      <label for="" class="text-cyan-500 mb-1 text-sm">Price</label>
-      <input
-        type="text"
-        class="p-2 border w-100 rounded"
+  <v-container class="w-50">
+    <v-row class="d-flex flex-col mt-2">
+      <v-label text="Name"></v-label>
+      <v-text-field
+        v-model="info.name"
+        variant="outlined"
+        rounded
+      ></v-text-field>
+    </v-row>
+
+    <v-row class="d-flex flex-col mt-2">
+      <v-label text="Price"></v-label>
+      <v-text-field
         v-model="info.price"
-      />
-    </div>
-    <div class="flex flex-col w-[100%] mt-2">
-      <label for="" class="text-cyan-500 mb-1 text-sm">Description</label>
-      <textarea
-        type="text"
-        class="p-2 border w-100 rounded"
-        v-model="info.description"
-      ></textarea>
-    </div>
-    <button
+        variant="outlined"
+        rounded
+      ></v-text-field>
+    </v-row>
+
+    <v-row class="d-flex flex-col mt-2 rounded-xl">
+      <v-label text="Description"></v-label>
+      <v-textarea v-model="info.description" variant="outlined"></v-textarea>
+    </v-row>
+
+    <v-btn
       @click="handleSubmit"
       :disabled="isButtonDisabled"
-      class="bg-blue-400 text-white rounded py-2 px-7"
+      color="#0d6efd"
+      rounded
+      text="Submit"
     >
-      Submit
-    </button>
-    <p v-if="errorMessage" class="mt-3 text-red-400">{{ errorMessage }}</p>
-  </div>
+    </v-btn>
+
+    <p v-if="errorMessage">{{ errorMessage }}</p>
+  </v-container>
 </template>
 
 <script setup>
