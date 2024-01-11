@@ -2,9 +2,9 @@
   <v-container class="d-flex flex-col justify-center h-100">
     <LoginSignInText text="Sign Up" />
 
-    <div class="mx-auto w-50">
+    <v-container class="mx-auto w-50">
       <LoginSignUpEmail />
-    </div>
+    </v-container>
   </v-container>
 </template>
 
