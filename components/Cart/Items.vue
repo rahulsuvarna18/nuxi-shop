@@ -7,12 +7,14 @@
     <v-divider vertical></v-divider>
     <p>Total: {{ item.totalPrice }}€</p>
     <v-divider vertical></v-divider>
-    <v-btn color="#FAFAFA" @click="cartStore.add(item.id)">+</v-btn>
-    <v-btn color="#FAFAFA" @click="cartStore.remove(item.id)">-</v-btn>
+    <v-btn color="#FAFAFA" @click="cartStore.add(item.id)" text="+"></v-btn>
+    <v-btn color="#FAFAFA" @click="cartStore.remove(item.id)" text="-"></v-btn>
     <v-divider vertical></v-divider>
-    <v-btn color="#fd0d71" @click="cartStore.removeProduct(item.id)">
-      Delete Product
-    </v-btn>
+    <v-btn
+      color="#fd0d71"
+      @click="cartStore.removeProduct(item.id)"
+      text=" Delete Product"
+    ></v-btn>
   </v-container>
 </template>
 

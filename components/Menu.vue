@@ -10,8 +10,8 @@
           height="3rem"
           width="8rem"
           @click="cartStore.add(iceCream.id)"
-          >Add To Cart</v-btn
-        >
+          text="Add To Cart"
+        ></v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -36,14 +36,14 @@ const props = defineProps<MenuItem>();
 </script>
 
 <style scoped>
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding: 2rem;
-  overflow: hidden;
-}
+/* .container { */
+/* display: flex; */
+/* align-items: center; */
+/* justify-content: center; */
+/* flex-direction: column; */
+/* gap: 1rem; */
+/* margin-bottom: 2rem; */
+/* padding: 2rem; */
+/* overflow: hidden; */
+/* } */
 </style>

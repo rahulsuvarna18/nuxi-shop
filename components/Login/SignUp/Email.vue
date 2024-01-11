@@ -1,5 +1,5 @@
 <template>
-  <v-container class="space-y-6">
+  <v-container>
     <v-row>
       <v-col>
         <v-label for="email" text="Email Address"></v-label>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-const email = ref("");
+const email = ref<string>("");
 const password = ref<string>("");
 const errorMsg = ref<string>("");
 

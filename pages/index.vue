@@ -1,11 +1,17 @@
 <template>
   <v-layout>
-    <div class="container">
+    <v-container
+      class="container d-flex justify-center align-center ga-4 h-screen"
+    >
       <v-btn to="/menu" color="#0d6efd" height="4rem" width="9rem">Menu</v-btn>
-      <v-btn to="/login" color="#0d6efd" height="4rem" width="9rem"
-        >Login</v-btn
-      >
-    </div>
+      <v-btn
+        to="/login"
+        color="#0d6efd"
+        height="4rem"
+        width="9rem"
+        text="Login"
+      ></v-btn>
+    </v-container>
   </v-layout>
 </template>
 
@@ -17,13 +23,8 @@ useHead({
 
 <style scoped>
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
   background-image: url("@/assets/images/home-screen-pic.jpg");
   background-size: cover;
-  height: 95vh;
   max-width: 100vw;
 }
 </style>
