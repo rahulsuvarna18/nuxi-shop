@@ -15,7 +15,7 @@
   </v-layout>
 </template>
 
-<script setup>
+<script setup lang="ts">
 useHead({
   title: "Ice Cream Shop",
 });

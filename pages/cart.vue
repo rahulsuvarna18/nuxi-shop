@@ -11,8 +11,8 @@
   </v-container>
 </template>
 
-<script setup>
-import { useCartStore } from "../../stores/cart";
+<script setup lang="ts">
+import { useCartStore } from "@/stores/cart";
 
 useHead({
   title: "Ice Cream Cart",

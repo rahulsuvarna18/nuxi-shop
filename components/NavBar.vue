@@ -8,7 +8,7 @@
       <v-row>
         <v-col class="d-flex align-center ga-3">
           <div v-if="user">
-            <span class="mr-5">Hi {{ name ? name : "user" }}</span>
+            <span class="mr-5">Hi {{ name ? name : "User" }}</span>
 
             <v-avatar v-if="profile != undefined" class="mr-2">
               <v-img alt="profile pic" :src="profile"></v-img>
@@ -39,8 +39,9 @@
   </v-toolbar>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const user = useSupabaseUser();
+const { value } = useSupabaseUser();
 const supabase = useSupabaseClient();
 
 async function logout() {
@@ -51,8 +52,12 @@ async function logout() {
   navigateTo("/");
 }
 
-const name = computed(() => user?.value.user_metadata.full_name);
-const profile = computed(() => user?.value.user_metadata.picture);
+const name = computed(() =>
+  user.value ? user.value.user_metadata.full_name : ""
+);
+const profile = computed(() =>
+  user.value ? user.value.user_metadata.picture : ""
+);
 
 const userDataLoaded = ref(false);
 
