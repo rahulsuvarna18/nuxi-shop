@@ -31,7 +31,7 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 useHead({
   title: "Dashboard",
 });
@@ -40,13 +40,13 @@ definePageMeta({
 });
 
 const user = useSupabaseUser();
-const isLoading = ref(false);
+const isLoading = ref<boolean>(false);
 
 const { data: listings, refresh } = await useFetch(
-  `/api/iceCream/user/${user.value.id}`
+  `/api/iceCream/user/${user.value ? user.value.id : ""}`
 );
 
-const handleDelete = async (id) => {
+const handleDelete = async (id: number) => {
   isLoading.value = true;
   await $fetch(`/api/iceCream/${id}`, {
     method: "delete",
