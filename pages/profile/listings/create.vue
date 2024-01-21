@@ -36,7 +36,7 @@
   </v-container>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed } from "vue";
 
 definePageMeta({
@@ -45,19 +45,23 @@ definePageMeta({
 
 const user = useSupabaseUser();
 
-const errorMessage = ref("");
+const errorMessage = ref<string>("");
 
-const info = useState("adInfo", () => {
-  return {
-    name: "",
-    description: "",
-    price: "",
-  };
+interface InfoState {
+  name: string;
+  description: string;
+  price: string;
+}
+
+const info = ref<InfoState>({
+  name: "",
+  description: "",
+  price: "",
 });
 
 const isButtonDisabled = computed(() => {
   for (let key in info.value) {
-    if (!info.value[key]) return true;
+    if (!key) return true;
   }
   return false;
 });
@@ -66,7 +70,7 @@ const handleSubmit = async () => {
   const body = {
     ...info.value,
     price: parseInt(info.value.price),
-    listerId: user.value.id,
+    listerId: user.value ? user.value.id : new Date().getMilliseconds(),
   };
 
   try {
@@ -75,7 +79,9 @@ const handleSubmit = async () => {
       body,
     });
     navigateTo("/profile/listings");
-  } catch (err) {
+  } catch (err: any) {
+    // no sure if err: any is the right way as setting it
+    //to an object is throwing an error and TS accepts only any or unknown type
     errorMessage.value = err.statusMessage;
   }
 
