@@ -1,9 +1,5 @@
-export default async function (filters) {
-  const { data, error } = await useFetch(`/api/menu`, {
-    params: {
-      ...filters,
-    },
-  });
+export default async function () {
+  const { data, error } = await useFetch(`/api/menu`);
 
   if (error.value)
     throw createError({
