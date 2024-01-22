@@ -1,25 +1,44 @@
 import { defineStore } from "pinia";
-import { useLocalStorage } from "@vueuse/core";
-import { ref, reactive } from "vue";
+
+type AllIceData = {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  listerId: string;
+};
+
+type CartContent = {
+  productId: number;
+  quantity: number;
+};
+
+type State = {
+  allIceData: AllIceData[] | null;
+  cartContent: CartContent[];
+  isLoading: boolean;
+};
 
 export const useCartStore = defineStore("cart", {
-  state: () => ({
-    allIceData: reactive([]),
-    cartContent: ref({}),
-    isLoading: ref(false),
+  state: (): State => ({
+    allIceData: null,
+    cartContent: [],
+    isLoading: false,
   }),
 
   persist: true,
 
   actions: {
     async getData() {
-      const data = await useFetchIceCreams();
+      const { value: data } = await useFetchIceCreams();
       this.allIceData = data;
     },
 
-    add(productId) {
+    add(productId: number) {
+      console.log("add function");
+      console.log(this.cartContent);
       if (!this.cartContent || typeof this.cartContent !== "object") {
-        this.cartContent = {};
+        this.cartContent = [];
       }
 
       if (this.cartContent.hasOwnProperty(productId)) {
@@ -36,7 +55,7 @@ export const useCartStore = defineStore("cart", {
       navigateTo("/cart");
     },
 
-    remove(productId) {
+    remove(productId: number) {
       this.isLoading = true;
       if (!this.cartContent[productId]) {
         return;
@@ -49,7 +68,7 @@ export const useCartStore = defineStore("cart", {
       this.isLoading = false;
     },
 
-    removeProduct(productId) {
+    removeProduct(productId: number) {
       this.isLoading = true;
       delete this.cartContent[productId];
       this.isLoading = false;
@@ -57,31 +76,38 @@ export const useCartStore = defineStore("cart", {
   },
 
   getters: {
-    cartInfo() {
+    cartInfo(): object[] {
+      console.log("in cartInfo");
       if (!this.cartContent || typeof this.cartContent !== "object") {
         return [];
       }
 
       return Object.keys(this.cartContent).map((productId) => {
-        const product = this.cartContent[productId];
+        const pId = parseFloat(productId);
+        const product = this.cartContent[pId];
+
+        const iceCream = this.allIceData?.find(
+          (x) => x.id === product.productId
+        );
 
         return {
           id: product.productId,
           quantity: product.quantity,
-          name: this.allIceData.find((x) => x.id === product.productId).name,
-          price: this.allIceData.find((x) => x.id === product.productId).price,
-          totalPrice:
-            product.quantity *
-            this.allIceData.find((x) => x.id === product.productId).price,
+          name: iceCream?.name,
+          price: iceCream?.price,
+          totalPrice: product.quantity * (iceCream?.price ?? 0),
         };
       });
     },
 
-    total() {
+    total(): number {
       return Object.keys(this.cartContent).reduce((acc, id) => {
-        const product = this.allIceData.find((p) => p.id === parseInt(id));
-        if (product) {
-          return acc + product.price * this.cartContent[id].quantity;
+        if (this.allIceData !== null) {
+          const product = this.allIceData.find((p) => p.id === parseInt(id));
+          if (product) {
+            const pId = parseFloat(id);
+            return acc + product.price * this.cartContent[pId].quantity;
+          }
         }
         return acc + 0;
       }, 0);
