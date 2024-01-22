@@ -35,8 +35,6 @@ export const useCartStore = defineStore("cart", {
     },
 
     add(productId: number) {
-      console.log("add function");
-      console.log(this.cartContent);
       if (!this.cartContent || typeof this.cartContent !== "object") {
         this.cartContent = [];
       }
@@ -77,7 +75,6 @@ export const useCartStore = defineStore("cart", {
 
   getters: {
     cartInfo(): object[] {
-      console.log("in cartInfo");
       if (!this.cartContent || typeof this.cartContent !== "object") {
         return [];
       }

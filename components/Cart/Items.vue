@@ -27,11 +27,11 @@ interface CartItem {
   item: {
     id: number;
     name: string;
-    price: Number;
+    price: number;
     quantity: number;
     totalPrice: Number;
   };
 }
 
-const props = defineProps<CartItem>();
+const { item } = defineProps<CartItem>();
 </script>
