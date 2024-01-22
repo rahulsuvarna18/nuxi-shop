@@ -80,7 +80,7 @@ const handleSubmit = async () => {
     });
     navigateTo("/profile/listings");
   } catch (err: any) {
-    // no sure if err: any is the right way as setting it
+    // not sure if err: any is the right way as setting it
     //to an object is throwing an error and TS accepts only any or unknown type
     errorMessage.value = err.statusMessage;
   }

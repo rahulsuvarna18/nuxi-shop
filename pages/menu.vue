@@ -13,5 +13,5 @@ useHead({
   title: "Ice Cream Menu",
 });
 
-const iceCreams = await useFetchIceCreams({});
+const iceCreams = await useFetchIceCreams();
 </script>
